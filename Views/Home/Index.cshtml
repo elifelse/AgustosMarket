@@ -1,6 +1,7 @@
 ﻿@model AgustosMarket.ViewModels.HomeViewModels
 @{
     ViewData["Title"] = "Anasayfa";
+    int? kid = Model.SeciliKategoriId;
 }
 
 <div class="row">
@@ -8,20 +9,18 @@
         @*SÜTUN 1 BAŞLANGIÇ*@
         <h3 class="mt-3">Kategoriler</h3>
         <div class="list-group">
-            <a class="list-group-item list-group-item-action" asp-controller="Home" asp-action="Index">
+            <a class="list-group-item list-group-item-action @(!kid.HasValue ? "active" : "")" asp-controller="Home" asp-action="Index">
                 Tümü
             </a>
             @foreach (Kategori kategori in Model.Kategoriler)
             {
-                <a class="list-group-item list-group-item-action" asp-controller="Home"
+                <a class="list-group-item list-group-item-action @(kid == kategori.Id ? "active" : "")" asp-controller="Home"
                    asp-action="Index" asp-route-kid="@kategori.Id">
                     @kategori.KategoriAd
                 </a>
             }
         </div>
     </div>
-    
-
 
     @*SÜTUN 1 BİTİŞ*@
 

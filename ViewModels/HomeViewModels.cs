@@ -8,6 +8,7 @@ namespace AgustosMarket.ViewModels
 {
     public class HomeViewModels
     {
+        public int? SeciliKategoriId { get; set; }
         public List<Kategori> Kategoriler { get; set; }
         public List<Urun> Urunler { get; set; }
     }

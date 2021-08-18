@@ -29,6 +29,7 @@ namespace AgustosMarket.Controllers
                 urunler = urunler.Where(x => x.KategoriId == kid);
 
             HomeViewModels vm = new HomeViewModels();
+            vm.SeciliKategoriId = kid;
             vm.Kategoriler = _context.Kategoriler.ToList();
             vm.Urunler = urunler.ToList();
             
