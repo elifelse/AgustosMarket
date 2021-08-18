@@ -1,0 +1,26 @@
+﻿@model Urun
+@{ 
+    ViewBag.Title = "Yeni Ürün";
+}
+
+<form method="post" asp-controller="Urunler" asp-action="Yeni">
+    <div class="mb-3 col-md-4">
+        <label asp-for="UrunAd" class="form-label">Ürün Adı</label>
+        <input asp-for="UrunAd" class="form-control" />
+        <span asp-validation-for="UrunAd"></span>
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label asp-for="BirimFiyat" class="form-label">Birim Fiyatı (₺)</label>
+        <input type="text" asp-for="BirimFiyat" class="form-control" />
+        <span asp-validation-for="BirimFiyat"></span>
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label asp-for="KategoriId" class="form-label">Kategori</label>
+        <select asp-for="KategoriId" asp-items="ViewBag.Kategoriler" class="form-control"></select>
+        <span asp-validation-for="KategoriId"></span>
+    </div>
+
+    <button class="btn btn-primary">Ekle</button>
+</form>
